@@ -2,7 +2,7 @@
  * @Author: chaichai 2787922490@qq.com
  * @Date: 2024-10-14 14:57:01
  * @LastEditors: chaichai 2787922490@qq.com
- * @LastEditTime: 2024-10-16 15:58:34
+ * @LastEditTime: 2024-10-16 17:21:17
  * @FilePath: \chai-blog-new\src\components\footer\index.vue
  * @Description: 
  * 
@@ -159,6 +159,10 @@ a {
   width: 60.4rem;
   border-right: 2px solid;
   padding: 20px 3rem 0px 3rem;
+  a {
+    color: #383c93;
+    text-decoration: none;
+  }
 }
 
 .admin-name {

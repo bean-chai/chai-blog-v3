@@ -2,7 +2,7 @@
  * @Author: chaichai 2787922490@qq.com
  * @Date: 2023-12-20 15:06:20
  * @LastEditors: chaichai 2787922490@qq.com
- * @LastEditTime: 2024-10-15 10:50:19
+ * @LastEditTime: 2024-10-16 17:21:36
  * @FilePath: \chai-blog-new\src\App.vue
  * @Description: 
  * 
@@ -111,11 +111,6 @@ fitRem(document, window);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-a {
-  color: #383c93;
-  text-decoration: none;
 }
 
 .main-box {

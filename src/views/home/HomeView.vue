@@ -2,7 +2,7 @@
  * @Author: Chai chai 2787922490@qq.com
  * @Date: 2023-05-22 20:51:58
  * @LastEditors: chaichai 2787922490@qq.com
- * @LastEditTime: 2024-10-16 17:08:08
+ * @LastEditTime: 2024-10-16 17:23:52
  * @FilePath: \chai-blog-new\src\views\home\HomeView.vue
  * @Description: 
  * 
@@ -47,18 +47,24 @@
         <div class="show-title">Profile</div>
       </div>
       <div class="title-ebox" :style="{ 'border-color': color, color: color }">
-        Notice
-        <div class="dots">
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-          <div class="dots-item"></div>
-        </div>
+        <a
+          :style="{ 'border-color': color, color: color }"
+          href="#notice"
+          @click="goNotice"
+        >
+          Notice
+          <div class="dots">
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+            <div class="dots-item"></div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -207,7 +213,7 @@
     </div>
 
     <!-- 公告 -->
-    <div class="split-box">
+    <div class="split-box" id="notice">
       <div class="split-lbox" :style="{ 'border-color': color, color: color }">
         Notice
       </div>
@@ -256,6 +262,7 @@ import banner14 from "@/assets/banner14.png";
 import banner15 from "@/assets/banner15.png";
 import banner16 from "@/assets/banner16.png";
 import banner17 from "@/assets/banner17.png";
+import { log } from "console";
 
 const pickList = [
   banner1,
@@ -288,6 +295,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearInterval(timer.value);
 });
+
+const goNotice = () => {
+  console.log(1111111112121212);
+};
 
 const getImageUrl = (index: any) => {
   return require(`@/assets/banner${index}.png`);
@@ -401,7 +412,6 @@ const togglePlay = () => {
   width: calc(100% - 48rem);
   /* flex: 48; */
   // border-bottom: 2px solid;
-  border-right: 2px solid;
   padding-top: 20px;
   padding-left: 20px;
   text-align: left;
@@ -424,14 +434,26 @@ dots-item1 {
 }
 
 .title-ebox {
-  width: 90px;
+  width: 100px;
   // flex: 9;
   flex-shrink: 0;
   // border-bottom: 2px solid;
   // border-right: 2px solid;
+  border-left: 2px solid;
   font-weight: 700;
   padding-top: 20px;
   text-align: center;
+  a {
+    color: var(--base-color);
+    width: 90px;
+    // flex: 9;
+    flex-shrink: 0;
+    // border-bottom: 2px solid;
+    // border-right: 2px solid;
+    font-weight: 700;
+    padding-top: 20px;
+    text-align: center;
+  }
 }
 
 .loader {
@@ -830,7 +852,7 @@ dots-item1 {
   border-radius: 10px;
   width: 200px;
   height: 200px;
-  border: 2px solid;
+  // border: 2px solid;
   background-image: url("@/assets/touxiang.jpg");
   background-size: cover;
   img {
@@ -1073,7 +1095,7 @@ dots-item1 {
     display: none;
   }
   .title-fbox {
-    width: calc(100% - 130px - 90px);
+    width: calc(100% - 130px - 100px);
   }
   .split-point {
     display: none;
