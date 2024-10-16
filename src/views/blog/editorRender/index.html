@@ -1,0 +1,60 @@
+<!--
+ * @Author: chaichai 2787922490@qq.com
+ * @Date: 2024-05-13 16:51:36
+ * @LastEditors: chaichai 2787922490@qq.com
+ * @LastEditTime: 2024-05-14 14:10:37
+ * @FilePath: \chaichaiBlog\src\views\blog\editorRender\index.html
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体呈现</title>
+    <style>
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+
+        .cube div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+        }
+
+        .front {
+            background-color: orange;
+            /* 向我走近200px */
+            /* 让一个靠近我，一个不靠近，就会实现两个面之间的距离感 */
+            transform: translateZ(200px);
+        }
+
+        .back {
+            background-color: green;
+        }
+
+        /* cube hover 为了看空间感效果，鼠标放上去后 都绕Y轴转120度 */
+        .cube:hover {
+            transform: rotateY(120deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="front">前面</div>
+        <div class="back">后面</div>
+    </div>
+</body>
+</html>

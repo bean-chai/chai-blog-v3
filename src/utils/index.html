@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f1f1f1;
+            overflow: hidden;
+        }
+
+        .father-box {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .banner-box {
+            width: 120vw;
+            position: fixed;
+            left: -10px;
+            bottom: 0;
+            width: 100vw;
+            background-color: #dc9b9a;
+            transform: rotate(7deg);
+        }
+
+        #text {
+            width: 110vw;
+            position: relative;
+            color: #fff;
+            font-weight: 700;
+            font-size: 10em;
+            line-height: 1em;
+            letter-spacing: 2px;
+            text-align: center;
+            left: -100px;
+            /* transform: rotate(-28deg) skew(25deg); */
+            transform: rotate(7deg) skew(18deg);
+            border: 3px solid #f3f3f3;
+            overflow: hidden;
+            /* 隐藏溢出部分 */
+            white-space: nowrap;
+            /* 防止文本换行 */
+        }
+
+        #text span {
+            display: inline-block;
+            animation: scrollText 10s linear infinite;
+            /* 设置滚动动画 */
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            color: rgba(0, 0, 0, 0.3);
+            text-shadow: none;
+            filter: blur(8px);
+            z-index: -1;
+            animation: scrollText 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="father-box">
+        <div class="banner-box">
+            <div id="text" data-text="Adachi-Bot"><span>Adachi-Bot</span></div>
+        </div>
+    </div>
+
+    <!-- <div id="text" data-text="Adachi-Bot">Adachi-Bot</div> -->
+
+</body>
+<script>
+    const text = document.getElementById('text')
+    let shadow = '';
+
+    for (let i = 0; i < 30; i++) {
+        shadow = `${shadow}, -${i * 1}px ${i * 1}px 0 #d9d9d9`
+    }
+    shadow = shadow.substring(1);
+
+    text.style.textShadow = shadow;
+</script>
+</html>

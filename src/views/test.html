@@ -1,0 +1,72 @@
+<!--
+ * @Author: chaichai 2787922490@qq.com
+ * @Date: 2024-05-13 16:51:36
+ * @LastEditors: chaichai 2787922490@qq.com
+ * @LastEditTime: 2024-10-14 10:52:03
+ * @FilePath: \chai-blog\chaichaiBlog\src\views\test.html
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 16px;
+        }
+
+        .box {
+            width: 100vw;
+            height: 100vh;
+            background-color: orange;
+        }
+
+        p {
+            font-size: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+
+    </div>
+
+    <p>我是文本</p>
+
+    <!-- 动态的修改html的font-size -->
+    <span>哈哈哈哈哈哈</span>
+
+    <script>
+        // 1.获取html的元素
+        const htmlEl = document.documentElement;
+
+        function setRemUnit() {
+            // 2.获取html的宽度(视口的宽度)  clientWidth是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变。 
+            const htmlWidth = htmlEl.clientWidth;
+            // 3.根据宽度计算一个html的font-size的大小
+            const htmlFontSize = htmlWidth / 10;
+            // 4.将font-size设置到html上
+            htmlEl.style.fontSize = htmlFontSize + "px";
+        }
+        // 保证第一次进来时, 可以设置一次font-size
+        setRemUnit();
+
+        // 当屏幕尺寸发生变化时, 实时来修改html的font-size
+        window.addEventListener("resize", setRemUnit);
+        // 监听页面初次加载时候的事件
+        window.addEventListener("pageshow", setRemUnit);
+    </script>
+</body>
+</html>

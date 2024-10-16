@@ -1,0 +1,168 @@
+﻿<!--
+ * @Author: Chai chai 2787922490@qq.com
+ * @Date: 2023-10-14 17:50:01
+ * @LastEditors: Chai chai 2787922490@qq.com
+ * @LastEditTime: 2023-10-15 14:51:49
+ * @FilePath: \chaichaiBlog\src\views\button.html
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>测试按钮</title>
+	<style>
+		.btn {
+			margin-top: 20px;
+			border: 2px solid transparent;
+			border-radius: 0;
+			text-transform: uppercase;
+			position: relative;
+			transition: all 0.3s ease 0s;
+			cursor: pointer;
+			padding: 8px 16px;
+			border-radius: 1px;
+		}
+
+		.btn1 {
+			margin-top: 20px;
+			border: 2px solid transparent;
+			border-radius: 0;
+			text-transform: uppercase;
+			position: relative;
+			transition: all 0.3s ease 0s;
+			cursor: pointer;
+			padding: 8px 16px;
+			background-color: rgb(205, 164, 79);
+			color: #fff;
+			border-radius: 1px;
+		}
+
+		.btn:before {
+			content: "";
+			height: 6px;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			position: absolute;
+			bottom: -8px;
+			left: 4px;
+			right: -8px;
+			transition: all 0.3s ease 0s;
+		}
+
+		.btn1:before {
+			content: "";
+			height: 6px;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			position: absolute;
+			bottom: -8px;
+			left: 4px;
+			right: -8px;
+			transition: all 0.3s ease 0s;
+		}
+
+		.btn:hover:before {
+			bottom: -2px;
+			left: -2px;
+			right: 2px;
+			border-color: #e16b47;
+			border-radius: 0;
+		}
+
+		.btn1:hover:before {
+			bottom: -2px;
+			left: -2px;
+			right: 2px;
+			border-color: #e16b47;
+			border-radius: 0;
+
+		}
+
+		.btn:after {
+			content: "";
+			width: 6px;
+			border-right: 2px solid transparent;
+			border-top: 2px solid transparent;
+			position: absolute;
+			bottom: -8px;
+			right: -8px;
+			top: 4px;
+			transition: all 0.3s ease 0s;
+		}
+
+		.btn1:after {
+			content: "";
+			width: 6px;
+			border-right: 2px solid transparent;
+			border-top: 2px solid transparent;
+			position: absolute;
+			bottom: -8px;
+			right: -8px;
+			top: 4px;
+			transition: all 0.3s ease 0s;
+		}
+
+		.btn:hover:after {
+			bottom: 2px;
+			right: -2px;
+			top: -2px;
+			border-color: #e16b47;
+			border-radius: 0;
+		}
+
+		.btn1:hover:after {
+			bottom: 2px;
+			right: -2px;
+			top: -2px;
+			border-color: #e16b47;
+			border-radius: 0;
+		}
+
+		.btn.orange {
+			border-color: rgb(205, 164, 79);
+			color: rgb(205, 164, 79);
+			border-radius: 5px;
+		}
+
+		.btn.orange:before,
+		.btn.orange:after {
+			border-color: rgb(205, 164, 79, .6);
+			border-radius: 3px;
+			color: rgb(205, 164, 79);
+		}
+
+		.btn1.orange1 {
+			border-color: rgb(205, 164, 79);
+			color: #fff;
+			border-radius: 5px;
+		}
+
+		.btn1.orange1:before,
+		.btn1.orange1:after {
+			border-color: rgb(205, 164, 79, .6);
+			border-radius: 3px;
+			color: rgb(205, 164, 79);
+
+		}
+
+		@media only screen and (max-width: 767px) {
+			.btn {
+				margin-bottom: 25px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div style="margin-top: 200px;margin-left: 100px;">
+		<span class="btn btn-lg orange">确 定</span>
+	</div>
+	<div style="margin-top: 200px;margin-left: 100px;">
+		<span class="btn1 btn-lg orange1">取 消</span>
+	</div>
+</body>
+</html>
