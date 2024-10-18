@@ -2,7 +2,7 @@
  * @Author: Chai chai 2787922490@qq.com
  * @Date: 2023-05-22 20:51:58
  * @LastEditors: chaichai 2787922490@qq.com
- * @LastEditTime: 2024-10-16 17:23:52
+ * @LastEditTime: 2024-10-18 17:28:25
  * @FilePath: \chai-blog-new\src\views\home\HomeView.vue
  * @Description: 
  * 
@@ -68,40 +68,43 @@
       </div>
     </div>
 
-    <!-- 左侧作者 -->
-    <div class="author">
-      <div class="touxiang">
-        <!-- <div class="touxiang-cover"></div> -->
-      </div>
-      <div class="touxiang-color">
-        <div class="name">柴柴</div>
-        <div class="name-slip"></div>
-        <div class="sign">生命久如暗室</div>
-        <div class="sign">不妨我明写春诗</div>
-      </div>
+    <!-- 右侧轮播 -->
+    <div class="banner-box">
+      <div class="banner-left">
+        <!-- 左侧作者 -->
+        <div class="author">
+          <div class="touxiang">
+            <!-- <div class="touxiang-cover"></div> -->
+          </div>
+          <div class="touxiang-color">
+            <div class="name">柴柴</div>
+            <div class="name-slip"></div>
+            <div class="sign">生命久如暗室</div>
+            <div class="sign">不妨我明写春诗</div>
+          </div>
 
-      <div class="sm-tab">
-        <div class="sm-box">
-          <div class="tab-num">50</div>
-          <div class="tab-name">文章</div>
-        </div>
-        <div class="sm-box">
-          <div class="tab-num">6</div>
-          <div class="tab-name">分类</div>
-        </div>
-        <div>
-          <div class="tab-num">41</div>
-          <div class="tab-name">标签</div>
-        </div>
-      </div>
+          <div class="sm-tab">
+            <div class="sm-box">
+              <div class="tab-num">50</div>
+              <div class="tab-name">文章</div>
+            </div>
+            <div class="sm-box">
+              <div class="tab-num">6</div>
+              <div class="tab-name">分类</div>
+            </div>
+            <div>
+              <div class="tab-num">41</div>
+              <div class="tab-name">标签</div>
+            </div>
+          </div>
 
-      <div class="icon-box">
-        <div class="github-box" @click="goGithub">
-          <div class="github"></div>
-        </div>
-      </div>
+          <div class="icon-box">
+            <div class="github-box" @click="goGithub">
+              <div class="github"></div>
+            </div>
+          </div>
 
-      <div class="cc-box">
+          <!-- <div class="cc-box">
         <div class="ct-cc-box4"></div>
         <div class="ct-cc-box5"></div>
         <div class="ct-cc-box6"></div>
@@ -112,12 +115,8 @@
           <div class="ct-cc-box2"></div>
           <div class="ct-cc-box3"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- 右侧轮播 -->
-    <div class="banner-box">
-      <div class="banner-left">
+      </div> -->
+        </div>
         <div
           class="split-Lbox"
           :style="{
@@ -232,6 +231,8 @@
       </div>
     </div>
 
+    <chaiArticle></chaiArticle>
+
     <chai-footer></chai-footer>
     <voceChat />
   </div>
@@ -239,6 +240,7 @@
 
 <script setup lang="ts">
 import chaiFooter from "@/components/footer/index.vue";
+import chaiArticle from "@/components/article/articleView.vue";
 import { useCounterStore } from "@/stores/index.ts";
 import { storeToRefs } from "pinia";
 import { onBeforeUnmount, onMounted, ref } from "vue";
@@ -258,11 +260,6 @@ import banner10 from "@/assets/banner10.png";
 import banner11 from "@/assets/banner11.png";
 import banner12 from "@/assets/banner12.png";
 import banner13 from "@/assets/banner13.png";
-import banner14 from "@/assets/banner14.png";
-import banner15 from "@/assets/banner15.png";
-import banner16 from "@/assets/banner16.png";
-import banner17 from "@/assets/banner17.png";
-import { log } from "console";
 
 const pickList = [
   banner1,
@@ -278,10 +275,6 @@ const pickList = [
   banner11,
   banner12,
   banner13,
-  banner14,
-  banner15,
-  banner16,
-  banner17,
 ];
 
 const index = ref(1);
@@ -311,12 +304,12 @@ const goGithub = () => {
 const startTimer = () => {
   timer.value = setInterval(() => {
     console.log("定时器触发");
-    if (index.value == 17) {
+    if (index.value == 13) {
       index.value = 1;
     } else {
       index.value++;
     }
-  }, 6000);
+  }, 8000);
 };
 
 const goTest = () => {
@@ -829,8 +822,6 @@ dots-item1 {
 }
 
 .author {
-  z-index: 9999;
-  position: fixed;
   top: 170px;
   width: 28rem;
   height: calc(100vh - 394px);
@@ -838,7 +829,7 @@ dots-item1 {
   border-top: 2px solid;
   background: url("@/assets/bgTexture.webp");
   background-size: cover;
-  border-bottom: 2px solid;
+  // border-bottom: 2px solid;
   text-align: center;
   overflow: hidden;
   // background-color: pink;
@@ -846,12 +837,12 @@ dots-item1 {
 
 .touxiang {
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 4rem;
   position: relative;
   z-index: 99;
   border-radius: 10px;
-  width: 200px;
-  height: 200px;
+  width: 15rem;
+  height: 15rem;
   // border: 2px solid;
   background-image: url("@/assets/touxiang.jpg");
   background-size: cover;
@@ -861,13 +852,16 @@ dots-item1 {
   }
 }
 .touxiang-color {
-  width: 200px;
-  position: absolute;
+  width: 15rem;
+  // position: absolute;
   z-index: 9;
   border-radius: 10px;
-  top: 190px;
-  left: 50%;
-  margin-left: -100px;
+  // top: 14rem;
+  // left: 50%;
+  // margin-left: -5rem;
+  margin: 0 auto;
+  margin-top: -60px;
+
   background: var(--base-color);
   text-align: center;
   color: #fff;
@@ -909,14 +903,15 @@ dots-item1 {
   margin-bottom: 15px;
 }
 .sign {
-  font-size: 18px;
+  font-size: 1.3rem;
 }
 .sm-tab {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: 130px;
+  // margin-top: 130px;
+  margin-top: 20px;
 }
 
 .sm-box {
@@ -949,23 +944,23 @@ dots-item1 {
   z-index: 99;
   margin-bottom: -40px;
   margin-left: -20px;
-  width: 140px;
-  height: 140px;
+  width: 9rem;
+  height: 9rem;
   transform: rotate(30deg);
   background-image: url("@/assets/cc1.png");
   background-size: cover;
 }
 .ct-cc-box2 {
   z-index: 99;
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
   background-image: url("@/assets/cc2.png");
   background-size: cover;
 }
 .ct-cc-box3 {
   z-index: 99;
-  width: 140px;
-  height: 140px;
+  width: 9rem;
+  height: 9rem;
   margin-bottom: -30px;
   margin-right: -20px;
   transform: rotate(-35deg);
@@ -978,8 +973,8 @@ dots-item1 {
   left: 110px;
   z-index: 9;
   transform: rotate(-15deg);
-  width: 160px;
-  height: 160px;
+  width: 11rem;
+  height: 11rem;
   background-image: url("@/assets/cc4.png");
   background-size: cover;
 }
@@ -989,8 +984,8 @@ dots-item1 {
   left: 260px;
   z-index: 9;
   transform: rotate(25deg);
-  width: 120px;
-  height: 120px;
+  width: 7rem;
+  height: 7rem;
   background-image: url("@/assets/cc5.png");
   background-size: cover;
 }
@@ -999,8 +994,8 @@ dots-item1 {
   bottom: 120px;
   left: 0px;
   z-index: 9;
-  width: 130px;
-  height: 130px;
+  width: 8rem;
+  height: 8rem;
   background-image: url("@/assets/cc6.png");
   background-size: cover;
 }
@@ -1009,8 +1004,8 @@ dots-item1 {
   bottom: 220px;
   left: 240px;
   z-index: 8;
-  width: 160px;
-  height: 160px;
+  width: 11rem;
+  height: 11rem;
   background-image: url("@/assets/cc7.png");
   background-size: cover;
 }
@@ -1020,8 +1015,8 @@ dots-item1 {
   left: 5px;
   z-index: 8;
   transform: rotate(-5deg);
-  width: 130px;
-  height: 130px;
+  width: 8rem;
+  height: 8rem;
   background-image: url("@/assets/cc8.png");
   background-size: cover;
 }
